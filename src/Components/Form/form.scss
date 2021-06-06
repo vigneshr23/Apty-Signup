@@ -1,0 +1,89 @@
+@import "../../assets/styles/variables";
+
+.field-contianer {
+    margin: 1.25rem 0;
+    font-size: 1rem;
+
+    .field {
+        border: 2px solid $border;
+        border-radius: 6px;
+        padding: 0.625em 0.75em;
+        line-height: 20px;
+        font-family: $secondryfont;
+        color: $text;
+        background-color: rgba(197, 211, 232, 0.1);
+        opacity: 0.6000000238418579;
+        display: flex;
+        justify-content: flex-start;
+        & > input {
+            width: 100%;
+            border: none;
+            color: inherit;
+            background-color: inherit;
+            max-width: 240px;
+            &:focus {
+                outline: none;
+            }
+            &::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                font-style: italic;
+            }
+            &::-moz-placeholder {
+                /* Firefox 19+ */
+                font-style: italic;
+            }
+            &:-ms-input-placeholder {
+                /* IE 10+ */
+                font-style: italic;
+            }
+        }
+        &--invalid {
+            background-color: $white;
+            border-color: $pink;
+            color: $pink;
+            background-image: url("../../assets/icons/error.svg");
+            background-size: 14px;
+            background-position: 95% 50%;
+            background-repeat: no-repeat;
+        }
+        &--valid {
+            background-color: $white;
+            background-image: url("../../assets/icons/check-green.svg");
+            background-size: 14px;
+            background-position: 95% 50%;
+            background-repeat: no-repeat;
+        }
+
+        & > label[icon*="icon"] {
+            height: 26px;
+            width: 26px;
+            margin-left: 0px;
+            margin-right: 3px;
+            opacity: 0.6;
+            background-color: $text;
+            &[icon*="name"] {
+                -webkit-mask-image: url("../../assets/icons/user.svg");
+                mask-image: url("../../assets/icons/user.svg");
+            }
+            &[icon*="email"] {
+                -webkit-mask-image: url("../../assets/icons/email.svg");
+                mask-image: url("../../assets/icons/email.svg");
+            }
+            &[icon*="password"] {
+                -webkit-mask-image: url("../../assets/icons/lock.svg");
+                mask-image: url("../../assets/icons/lock.svg");
+            }
+            &[icon*="--error"] {
+                background-color: $pink;
+            }
+        }
+    }
+
+    .input-feedback {
+        &--error {
+            font-size: 0.75rem;
+            color: $pink;
+            font-family: $secondryfont;
+        }
+    }
+}

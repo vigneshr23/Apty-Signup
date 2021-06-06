@@ -3,6 +3,9 @@ import { Banner } from "../Banner"
 import { Logo } from "../Logo";
 import logo from "../../assets/icons/logo.svg"
 import content from "../../Constants"
+import { Heading } from "../Headings";
+import SignupForm, { Field } from "../Form"
+import Button from "../Button/Button";
 
 const firstHalf = {
     flex: "1 0 50%",
@@ -10,10 +13,53 @@ const firstHalf = {
 }
 
 export const Signup = () => {
+    const handleSubmit = (formdata) => {
+        console.log("form submitted!! ", formdata)
+    }
     return (
         <div className="signup">
-            <div id="first-half" style={firstHalf}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <div id="first-half" className="signup__left" style={firstHalf}>
+                <Heading type="main" text={content.heading} />
+                <Heading type="sub1" text={content.subHeadng} />
+                <SignupForm
+                    initial={{
+                        name: "vignesh",
+                    }}
+                    handleSubmit={handleSubmit}
+                >
+                    <Field
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Name"
+                        icon
+                    />
+                    <Field
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email"
+                        icon
+                    />
+                    <Field
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="Password"
+                        icon
+                    />
+                    <div className="signup__term-checkbox">
+                        <input type="checkbox" id="tnc" name="tnc" />
+                        <label htmlFor="tnc">I agree to the <span>Terms</span> and <span>Privacy Policy</span>.</label>
+                    </div>
+
+                    <div className="signup__form-btns">
+                        <Button
+                            type="submit"
+                            label={content?.labels?.signUp}
+                        />
+                    </div>
+                </SignupForm>
             </div>
             <Banner bgImage={content?.bgImagePath}>
                 <Logo align="right" src={logo} brand="Apty" />
