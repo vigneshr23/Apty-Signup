@@ -1,0 +1,30 @@
+@import "../../assets/styles/variables";
+.signup {
+    display: flex;
+    background-color: $white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px 0 rgba(43, 46, 207, 0.5);
+    width: 800px;
+    height: 600px;
+    .banner {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        flex: 1 0 50%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .signup {
+        flex-direction: column-reverse;
+        overflow: auto;
+        height: 100%;
+        height: -webkit-fill-available;
+        .banner {
+            flex-basis: 30%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: unset;
+            background-position: bottom;
+        }
+    }
+}
