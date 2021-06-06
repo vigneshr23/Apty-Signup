@@ -1,12 +1,13 @@
 import "./button.scss";
 
-const Button = ({ type, label, className, onClick }) => {
+const Button = ({ type, label, className, onClick, ...props }) => {
     return (
         <>
             <button
                 className={className}
                 type={type ? type : "button"}
                 onClick={onClick}
+                {...props}
             >
                 {label}
             </button>

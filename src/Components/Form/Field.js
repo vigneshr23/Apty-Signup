@@ -1,3 +1,7 @@
+/**
+ * Generic input field component bound with Formik Form.
+ */
+
 import { useState } from "react";
 import { useField } from "formik"
 
@@ -6,7 +10,7 @@ const Field = (props) => {
     const [didFocus, setDidFocus] = useState(false);
     const handleFocus = () => setDidFocus(true);
     const showFeedback =
-        (!!didFocus && field.value.trim().length > 1) || meta.touched;
+        (!!didFocus && field.value?.trim().length > 1) || meta.touched;
     const className = `field ${showFeedback ? (meta.error ? 'field--invalid' : 'field--valid') : ''}`;
 
     return (

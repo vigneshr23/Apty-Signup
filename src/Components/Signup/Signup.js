@@ -1,3 +1,9 @@
+/**
+ * Renders Signup component and Banner comp. side by side
+ * SignupForm comp is a wrapper form which uses Formik underneath to manage form elements
+ * which are passed as child using Field
+ */
+
 import "./signup.scss";
 import { Banner } from "../Banner"
 import { Logo } from "../Logo";
@@ -6,26 +12,26 @@ import content from "../../Constants"
 import { Heading } from "../Headings";
 import SignupForm, { Field } from "../Form"
 import Button from "../Button/Button";
-
-const firstHalf = {
-    flex: "1 0 50%",
-    padding: "2.5rem"
-}
+import { useState } from "react";
 
 export const Signup = () => {
+    const [isValidated, setIsValidated] = useState(false);
     const handleSubmit = (formdata) => {
-        console.log("form submitted!! ", formdata)
+        console.log("form data: ", formdata)
     }
     return (
         <div className="signup">
-            <div id="first-half" className="signup__left" style={firstHalf}>
+            <div className="signup__left">
                 <Heading type="main" text={content.heading} />
                 <Heading type="sub1" text={content.subHeadng} />
                 <SignupForm
                     initial={{
                         name: "vignesh",
+                        email: "", 
+                        password: ""
                     }}
                     handleSubmit={handleSubmit}
+                    isValidForm={setIsValidated}
                 >
                     <Field
                         id="name"
@@ -57,6 +63,7 @@ export const Signup = () => {
                         <Button
                             type="submit"
                             label={content?.labels?.signUp}
+                            disabled={!isValidated}
                         />
                     </div>
                 </SignupForm>
