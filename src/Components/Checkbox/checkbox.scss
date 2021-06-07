@@ -1,0 +1,86 @@
+@import "../../assets/styles/variables";
+
+// .input-field {
+//     &__checkbox {
+//         display: block;
+//         position: relative;
+//         -webkit-user-select: none;
+//         -moz-user-select: none;
+//         -ms-user-select: none;
+//         user-select: none;
+//         & > input {
+//             position: absolute;
+//             opacity: 0;
+//             height: 0;
+//             width: 0;
+//             &:checked {
+//                 & ~ __checkmark {
+//                     background-color: $pink;
+//                     &::after {
+//                         content: "";
+//                         position: absolute;
+//                         display: none;
+//                     }
+//                 }
+//             }
+//         }
+//         &__checkmark {
+//             position: absolute;
+//             background-color: rgba(197, 211, 232, 0.1);
+//             border: 2px solid $border;
+//             border-radius: 6px;
+//             opacity: 0.6000000238418579;
+//             width: 24px;
+//             height: 24px;
+//         }
+//     }
+// }
+
+.term-checkbox {
+    display: flex;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-select: none;
+    > input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        &[value="true"] {
+            & + __custom-checkbox {
+                background-color: $pink;
+                border-color: $pink;
+            }
+        }
+    }
+    &__custom-checkbox {
+        position: absolute;
+        background-color: rgba(197, 211, 232, 0.1);
+        border: 2px solid #c5d3e8;
+        border-radius: 6px;
+        opacity: 0.6000000238418579;
+        width: 24px;
+        height: 24px;
+        &--checked {
+            background-color: $pink;
+            border-color: $pink;
+            position: absolute;
+            border-radius: 6px;
+            width: 24px;
+            height: 24px;
+            &::after {
+                -webkit-mask-image: url("../../assets/icons/check-white.svg");
+                mask-image: url("../../assets/icons/check-white.svg");
+                height: 26px;
+                width: 26px;
+                position: absolute;
+            }
+        }
+    }
+    &__label {
+        margin-left: 30px;
+    }
+}

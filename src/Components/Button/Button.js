@@ -1,11 +1,12 @@
 import "./button.scss";
+import PropTypes from "prop-types";
 
 const Button = ({ type, label, className, onClick, ...props }) => {
     return (
         <>
             <button
                 className={className}
-                type={type ? type : "button"}
+                type={type}
                 onClick={onClick}
                 {...props}
             >
@@ -20,5 +21,11 @@ export default Button;
 Button.defaultProps = {
     onClick: () => { },
     className: "",
-    label: ""
+    label: "",
+    type: "button"
+}
+
+Button.propTypes = {
+    type: PropTypes.oneOf(['button', 'submit', 'reset']),
+    onClick: PropTypes.func
 }

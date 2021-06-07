@@ -12,8 +12,19 @@
         .heading-main {
             margin-top: 0;
         }
-        .signup__form-btns {
-            margin: 2.5rem 0;
+        .term-checkbox {
+            &__label {
+                font-family: $secondryfont;
+                color: $text;
+                font-size: 14px;
+                line-height: 24px;
+                & > span {
+                    color: $pink;
+                }
+            }
+        }
+        &__form-btns {
+            margin-top: 5rem;
         }
     }
     .banner {
@@ -31,6 +42,9 @@
         height: -webkit-fill-available;
         &__left {
             padding: 1.5rem;
+            &__form-btns {
+                margin-top: 3rem;
+            }
         }
         .banner {
             flex-basis: 30%;

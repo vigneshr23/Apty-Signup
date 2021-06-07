@@ -1,7 +1,7 @@
 /**
  * Generic input field component bound with Formik Form.
  */
-
+import PropTypes from "prop-types"
 import { useState } from "react";
 import { useField } from "formik"
 
@@ -34,3 +34,7 @@ const Field = (props) => {
 }
 
 export default Field;
+
+Field.propTypes = {
+    icon: PropTypes.bool
+}

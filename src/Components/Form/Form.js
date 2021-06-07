@@ -9,9 +9,9 @@ import constants from "../../Constants"
 import { useEffect } from "react";
 
 const FormWrapper = ({ initial, render, isValidForm, ...props }) => {
-    const { name, email, password } = initial;
+    const { name, email, password, tnc } = initial;
     const formik = useFormik({
-        initialValues: { name, email, password },
+        initialValues: { name, email, password, tnc },
         onSubmit: values => {
             alert(`will submit`)
             props.handleSubmit(values)
@@ -26,6 +26,10 @@ const FormWrapper = ({ initial, render, isValidForm, ...props }) => {
             }
             if (!values.password || values.password.length < 6) {
                 errors.password = constants?.errors?.passwordLength
+            }
+            console.log({values})
+            if(!values.tnc) {
+                errors.tnc = constants?.errors?.required
             }
             return errors
         },

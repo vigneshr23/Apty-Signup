@@ -13,6 +13,7 @@ import { Heading } from "../Headings";
 import SignupForm, { Field } from "../Form"
 import Button from "../Button/Button";
 import { useState } from "react";
+import { Checkbox, SimpleCheckbox } from "../Checkbox";
 
 export const Signup = () => {
     const [isValidated, setIsValidated] = useState(false);
@@ -27,7 +28,7 @@ export const Signup = () => {
                 <SignupForm
                     initial={{
                         name: "vignesh",
-                        email: "", 
+                        email: "",
                         password: ""
                     }}
                     handleSubmit={handleSubmit}
@@ -54,12 +55,13 @@ export const Signup = () => {
                         placeholder="Password"
                         icon
                     />
-                    <div className="signup__term-checkbox">
-                        <input type="checkbox" id="tnc" name="tnc" />
-                        <label htmlFor="tnc">I agree to the <span>Terms</span> and <span>Privacy Policy</span>.</label>
-                    </div>
+                    <SimpleCheckbox
+                        id="tnc"
+                        name="tnc"
+                        labelText="I agree to the <span>Terms</span> and <span>Privacy Policy</span>."
+                    />
 
-                    <div className="signup__form-btns">
+                    <div className="signup__left__form-btns">
                         <Button
                             type="submit"
                             label={content?.labels?.signUp}
