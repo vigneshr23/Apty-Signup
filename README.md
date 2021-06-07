@@ -12,7 +12,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
-#### To Live Preview this project, [click here](https://60bdbf1974244ff1ccf5164d--optimistic-borg-a652bd.netlify.app/)
+#### To Live Preview this project, [click here](https://optimistic-borg-a652bd.netlify.app/)
 
 #### `Additional Libs`
 Formik
